@@ -1,6 +1,6 @@
 # Awesome-Reactive-Programming
 
-# Top Reactive Programming Tools Ecosystem
+## Top Reactive Programming Tools Ecosystem
 
 **Curated List of SaaS Products & Open-Source GitHub Projects**  
 *Focused on Observable Streams, Transparent Reactivity & Explicit State Machines*  
