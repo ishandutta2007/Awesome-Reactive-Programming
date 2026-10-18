@@ -1,0 +1,227 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="50%" stop-color="#0d1527" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="streamGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.8" />
+    </linearGradient>
+
+    <linearGradient id="streamGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.7" />
+      <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.7" />
+    </linearGradient>
+
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#f1f5f9" />
+      <stop offset="70%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#60a5fa" />
+    </linearGradient>
+
+    <radialGradient id="ambientGlow1" cx="20%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="ambientGlow2" cx="80%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="ambientGlow3" cx="50%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.75" stroke-opacity="0.3" />
+    </pattern>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <style>
+      .stream-flow-1 {
+        stroke-dasharray: 16 12;
+        animation: streamFlow1 12s linear infinite;
+      }
+      .stream-flow-2 {
+        stroke-dasharray: 20 14;
+        animation: streamFlow2 16s linear infinite;
+      }
+      .stream-flow-3 {
+        stroke-dasharray: 10 10;
+        animation: streamFlow3 9s linear infinite;
+      }
+      .pulse-pill {
+        animation: floatPill 5s ease-in-out infinite;
+      }
+      .pulse-pill-delay {
+        animation: floatPill 6s ease-in-out 2s infinite;
+      }
+      .beacon-ring {
+        animation: ripple 3s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        transform-origin: center;
+      }
+      .beacon-ring-2 {
+        animation: ripple 3s cubic-bezier(0, 0.2, 0.8, 1) 1.5s infinite;
+        transform-origin: center;
+      }
+
+      @keyframes streamFlow1 {
+        0% { stroke-dashoffset: 280; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes streamFlow2 {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: 340; }
+      }
+      @keyframes streamFlow3 {
+        0% { stroke-dashoffset: 200; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes floatPill {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-7px); }
+      }
+      @keyframes ripple {
+        0% { r: 5px; opacity: 0.9; stroke-width: 2.5; }
+        100% { r: 24px; opacity: 0; stroke-width: 0.5; }
+      }
+    </style>
+  </defs>
+
+  <!-- Base Canvas Background -->
+  <rect width="1000" height="320" fill="url(#bgGrad)" rx="16" />
+  <rect width="1000" height="320" fill="url(#ambientGlow1)" rx="16" />
+  <rect width="1000" height="320" fill="url(#ambientGlow2)" rx="16" />
+  <rect width="1000" height="320" fill="url(#ambientGlow3)" rx="16" />
+  <rect width="1000" height="320" fill="url(#grid)" rx="16" />
+
+  <!-- DYNAMIC BACKGROUND LAYER: Reactive Streams & Event Pipelines -->
+  <g opacity="0.85">
+    <!-- Stream Line 1: Top Flowing Wave -->
+    <path d="M -20,60 C 180,10 320,110 520,50 C 720,-10 860,90 1020,40"
+          fill="none" stroke="url(#streamGrad1)" stroke-width="2.5" class="stream-flow-1" filter="url(#softGlow)" />
+
+    <!-- Stream Line 2: Mid-Bottom Flowing Curve -->
+    <path d="M -20,240 C 220,180 380,290 600,230 C 780,180 880,270 1020,220"
+          fill="none" stroke="url(#streamGrad2)" stroke-width="3" class="stream-flow-2" filter="url(#softGlow)" />
+
+    <!-- Stream Line 3: Accent Harmonic Line -->
+    <path d="M -20,160 C 150,220 300,120 480,180 C 680,240 820,130 1020,170"
+          fill="none" stroke="#a855f7" stroke-width="1.5" stroke-opacity="0.4" class="stream-flow-3" />
+
+    <!-- Active Reactive Event Nodes (Beacons) along Streams -->
+    <!-- Node A -->
+    <circle cx="210" cy="72" r="12" fill="#8b5cf6" fill-opacity="0.15" />
+    <circle cx="210" cy="72" class="beacon-ring" fill="none" stroke="#a855f7" />
+    <circle cx="210" cy="72" r="5" fill="#c084fc" filter="url(#softGlow)" />
+
+    <!-- Node B -->
+    <circle cx="520" cy="50" r="12" fill="#ec4899" fill-opacity="0.15" />
+    <circle cx="520" cy="50" class="beacon-ring-2" fill="none" stroke="#ec4899" />
+    <circle cx="520" cy="50" r="5" fill="#f472b6" filter="url(#softGlow)" />
+
+    <!-- Node C -->
+    <circle cx="780" cy="205" r="12" fill="#3b82f6" fill-opacity="0.15" />
+    <circle cx="780" cy="205" class="beacon-ring" fill="none" stroke="#60a5fa" />
+    <circle cx="780" cy="205" r="5" fill="#93c5fd" filter="url(#softGlow)" />
+  </g>
+
+  <!-- Ambient Decorative Background Tags (Soft, non-obtrusive, low z-index) -->
+  <g class="pulse-pill" opacity="0.65">
+    <rect x="70" y="24" width="110" height="26" rx="13" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <circle cx="84" cy="37" r="4" fill="#10b981" />
+    <text x="96" y="41" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="600">Observable</text>
+  </g>
+
+  <g class="pulse-pill-delay" opacity="0.65">
+    <rect x="820" y="32" width="116" height="26" rx="13" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <circle cx="834" cy="45" r="4" fill="#ec4899" />
+    <text x="846" y="49" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="600">State Machine</text>
+  </g>
+
+  <!-- FOREGROUND CONTENT LAYER: Guaranteed Maximum Readability and High Contrast -->
+  <g transform="translate(0, 0)">
+    <!-- Central Reactive Logo / Emblem -->
+    <g transform="translate(500, 82)">
+      <!-- Hexagon Outer Glow -->
+      <polygon points="0,-32 28,-16 28,16 0,32 -28,16 -28,-16"
+               fill="#1e1b4b" stroke="url(#streamGrad1)" stroke-width="2.5" filter="url(#softGlow)" />
+      <!-- Reactive Stream Symbol / Infinity Node -->
+      <path d="M -12,-5 C -18,-12 -22,-6 -14,2 L 14,-2 C 22,6 18,12 12,5 Z"
+            fill="none" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" />
+      <circle cx="-12" cy="0" r="2.5" fill="#fb7185" />
+      <circle cx="0" cy="0" r="3" fill="#ffffff" filter="url(#softGlow)" />
+      <circle cx="12" cy="0" r="2.5" fill="#38bdf8" />
+    </g>
+
+    <!-- Main Title -->
+    <text x="500" y="152" text-anchor="middle"
+          fill="url(#titleGrad)"
+          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', Roboto, Helvetica, Arial, sans-serif"
+          font-size="35" font-weight="800" letter-spacing="-0.5px"
+          filter="url(#glow)">
+      Awesome Reactive Programming
+    </text>
+
+    <!-- Subtitle -->
+    <text x="500" y="186" text-anchor="middle"
+          fill="#cbd5e1"
+          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+          font-size="15" font-weight="400" letter-spacing="0.2px">
+      Curated Ecosystem of Observable Streams, Functional Reactive Engines &amp; State Machines
+    </text>
+
+    <!-- Feature Pills in Bottom Foreground -->
+    <g transform="translate(185, 222)">
+      <!-- Pill 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="138" height="32" rx="16" fill="#1e293b" fill-opacity="0.85" stroke="#475569" stroke-width="1" />
+        <text x="69" y="20" text-anchor="middle" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">⚡ Observables &amp; Rx</text>
+      </g>
+      <!-- Pill 2 -->
+      <g transform="translate(154, 0)">
+        <rect width="158" height="32" rx="16" fill="#1e293b" fill-opacity="0.85" stroke="#475569" stroke-width="1" />
+        <text x="79" y="20" text-anchor="middle" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">🔄 Statecharts &amp; XState</text>
+      </g>
+      <!-- Pill 3 -->
+      <g transform="translate(328, 0)">
+        <rect width="148" height="32" rx="16" fill="#1e293b" fill-opacity="0.85" stroke="#475569" stroke-width="1" />
+        <text x="74" y="20" text-anchor="middle" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">🌊 Event-Driven FRP</text>
+      </g>
+      <!-- Pill 4 -->
+      <g transform="translate(492, 0)">
+        <rect width="138" height="32" rx="16" fill="#1e293b" fill-opacity="0.85" stroke="#475569" stroke-width="1" />
+        <text x="69" y="20" text-anchor="middle" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">📡 Signals &amp; Stores</text>
+      </g>
+    </g>
+
+    <!-- Border highlight for subtle polish -->
+    <rect x="1" y="1" width="998" height="318" rx="15" fill="none" stroke="#475569" stroke-width="1" stroke-opacity="0.4" />
+  </g>
+</svg>
